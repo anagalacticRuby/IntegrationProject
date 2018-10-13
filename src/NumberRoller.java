@@ -3,66 +3,81 @@ import java.util.Scanner;
 
 public class NumberRoller {
 	
-	public static void roll() {	
+	public static void roll(Scanner scan) {	
 	
 		printRollWelcome(); //Welcome prompt for the number roller
-		beanRolls();
+		beanRolls(scan);
 		
 	}
-	
+
 	public static void printRollWelcome() {
 	System.out.println("Please enter the number of sides on your dice");
-	System.out.println("The following number of sides are available to pick from: 4, 6, 8, 10, 12, and 20"); //Tells user what side amounts are accepted, doesn't tell them about the hidden one
+	System.out.println("The following number of sides are available to pick from: 4, 6, 8, 10, 12, and 20"); 
+	//Tells user what side amounts are accepted, doesn't tell them about the hidden one
 	} //closes RollWelcome
-	public static void beanRolls() {
-		
-		Scanner fairGame = new Scanner(System.in); //allows user to input
+	
+	public static void beanRolls(Scanner fairGame) {
+	//The Scanner parameter with fairGame tells the code to use the scan Scanner but treats the name as fairGame.
+	//The reason this is relevant, is because it saves me from rewriting all the lines of code.	
 		int beanRoll = fairGame.nextInt();
 		if(beanRoll == 4) { //Rolls a 4-sided dice
 			Random deeFour = new Random();
 			int fourSides = deeFour.nextInt(4) + 1;
-			System.out.println("The result is:" + fourSides);
+			System.out.println("The result is: " + fourSides);
 		}
 		else if (beanRoll == 6) { //Rolls a 6-sided dice
 			Random deeSix = new Random();
 			int sixSides = deeSix.nextInt(6) + 1;
-			System.out.println("The result is:" + sixSides);
+			System.out.println("The result is: " + sixSides);
 		}
 		else if (beanRoll == 8) { //Rolls an 8-sided dice
 			Random deeEight = new Random();
 			int eightSides = deeEight.nextInt(8) + 1;
-			System.out.println("The result is:" + eightSides);
+			System.out.println("The result is: " + eightSides);
 		}
 		else if(beanRoll == 10) { //Rolls a 10-sided dice
 			Random deeTen = new Random();
 			int tenSides = deeTen.nextInt(10) + 1;
-			System.out.println("The result is:" + tenSides);
+			System.out.println("The result is: " + tenSides);
 		}
 		else if (beanRoll == 12) { //Rolls a 12-sided dice
 			Random deeTwelve = new Random();
 			int twelveSides = deeTwelve.nextInt(12) + 1;
-			System.out.println("The result is:" + twelveSides);
+			System.out.println("The result is: " + twelveSides);
 		}
 		else if (beanRoll == 20) { //Rolls a 20-sided dice
 			Random deeTwenty = new Random();
 			int twentySides = deeTwenty.nextInt(20) +1;
-			System.out.println("The result is:" + twentySides);
+			System.out.println("The result is: " + twentySides);
 		}
-		else { //If the user doesn't enter any of the specified numbers for sides of dice this "easter egg" happens
+		else { //If the user doesn't enter any of the specified numbers for sides of dice this 
+			//"easter egg" happens
 			Random diceTry = new Random();
 			int snakeEyes = diceTry.nextInt(100) + 1;
 			if (snakeEyes > 50) {
+	//Because snakeEyes is of type int, .equals is not used.
 				System.out.println("Congratulation, High-Roller!");
 			}
 			else {
 				System.out.println("Nice low roll.");
 			}
 			
-			System.out.println("Your result is:" + snakeEyes);
+			System.out.println("Your result is: " + snakeEyes);
 			System.out.println("There are other secrets to be found!");
+		
 		}
+		
 
-		fairGame.close(); //closes the number rolling scanner
+		/*
+		System.out.println("Enter the number of sides on your dice");
+		int rollBeans = fairGame.nextInt();
+		Random rndNum = new Random(); //Creates a random object, assigned to rndNum variable
+		int randomNum = rndNum.nextInt(rollBeans) + 1;
+		System.out.println(randomNum);
+		*/
+//These lines above were meant to test if it was possible to use user-input as variables for a random class
+// And it turns out that it does work. But for now, I don't want to basically undo most of my previous work.
+		
 	}
 
 }

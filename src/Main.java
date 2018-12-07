@@ -21,8 +21,8 @@ public class Main {
   /**
    * This is the main method, which acts as a central "hub" for the program.
    * 
-   * <p>Users can utilize the switch statement in this method to access various parts of the code 
-   * with ease. 
+   * <p>Users can use the switch statement in this method to access various parts of the code with
+   * ease.
    * A print statement at the start lets users know the options available and what to input in
    * order to select said option.
    * 
@@ -314,8 +314,14 @@ public class Main {
         int arrayMin = arrayTests[0];
         int arrayIndex = 0;
         int arraySum = 0;
+        System.out.println("The values in this array are: ");
+        int arrPrint = 0;
+        for (arrPrint = 0; arrPrint < arrayTests.length; arrPrint++) {
+          System.out.print(arrayTests[arrPrint] + " ");
+        }
+        System.out.println("\n");
         for (int i = 0; i < arrayTests.length; i++) {
-          if (arrayTests[i] < arrayTests[0]) {
+          if (arrayTests[i] < arrayMin) {
             arrayMin = arrayTests[i];
             arrayIndex = i;
             // This if statement searches for the lowest value in the array
@@ -329,12 +335,18 @@ public class Main {
         }
         System.out.println("The minimum value of the array is: " + arrayMin);
         // This line prints the lowest value of the array
-        System.out.println("The index of the array is: " + arrayIndex);
+        System.out.println("The index of the array's minimum is: " + arrayIndex);
         // This for loop prints each of the values inside the array.
         // Starting from index 0 to index 6.
         System.out.println("The sum of all the numbers in this array is: " + arraySum);
         System.out.println("A new array starts below, to avoid confusion.");
+        System.out.println("====={Below}=== \n");
         int[] intervals = {11, 22, 30, 423, 24};
+        System.out.println("The values in this array are: ");
+        for (arrPrint = 0; arrPrint < intervals.length; arrPrint++) {
+          System.out.print(intervals[arrPrint] + " ");
+        }
+        System.out.println("\n");
         for (int printValue : intervals) {
           if (printValue < 20) {
             System.out.println("Any values less than twenty are skipped.");
@@ -345,8 +357,13 @@ public class Main {
           }
           System.out.println(printValue);
         }
-        System.out.println("A new array starts below:");
+        System.out.println("A new array starts below: \n");
         int[] linedFries = {23, 56, 33, 68, 90, 45};
+        System.out.println("The values in this array are:");
+        for (arrPrint = 0; arrPrint < linedFries.length; arrPrint++) {
+          System.out.print(linedFries[arrPrint] + " ");
+        }
+        System.out.println("\n");
         for (int j = 0; j < linedFries.length; j++) {
           System.out.println(linedFries[j]);
           if (linedFries[j] == 68) {
@@ -362,21 +379,32 @@ public class Main {
 
         int[][] gottaSleep = new int[2][4];
         // 2D integer array with 2 rows and 4 columns
-        gottaSleep[1][0] = 34; // assigned at row 2 column 1
-        gottaSleep[1][1] = 23;
-        gottaSleep[1][2] = 67;
-        gottaSleep[1][3] = 334;
         gottaSleep[0][0] = 64;
         gottaSleep[0][1] = 504;
         // 2D arrays ALSO start at 0 for both columns AND rows
         gottaSleep[0][2] = 303;
         gottaSleep[0][3] = 3466;
+        gottaSleep[1][0] = 34; // assigned at row 2 column 1
+        gottaSleep[1][1] = 23;
+        gottaSleep[1][2] = 67;
+        gottaSleep[1][3] = 334;
+
+        int sleepMin = gottaSleep[0][0];
         int sleepIndex = gottaSleep[0][0];
         int sleepRow = 0;
         int sleepColumn = 0;
+        System.out.println("The values in this array are: ");
+        for (int onePrint = 0; onePrint < gottaSleep.length; onePrint++) {
+          for (int twoPrint = 0; twoPrint < gottaSleep[onePrint].length; twoPrint++) {
+            System.out.print(gottaSleep[onePrint][twoPrint] + " ");
+          }
+          System.out.print("\n");
+        }
+        System.out.println("\n");
         for (int z = 0; z < gottaSleep.length; z++) {
           for (int party = 0; party < gottaSleep[z].length; party++) {
-            if (gottaSleep[z][party] < gottaSleep[0][0]) {
+            if (gottaSleep[z][party] < sleepMin) {
+              sleepMin = gottaSleep[z][party];
               sleepIndex = gottaSleep[z][party];
               sleepRow = z;
               sleepColumn = party;

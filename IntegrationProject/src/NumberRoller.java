@@ -1,30 +1,49 @@
-//Nicholas Hansen
+
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This class houses all things related to dice rolling.
+ * 
+ * @author Nicholas Hansen
+ *
+ */
 public class NumberRoller {
 
+  /**
+   * This method calls the welcome prompt and the dice rolling method.
+   * 
+   * @param scan The Scanner from main method, so users can input numbers
+   */
   public static void roll(Scanner scan) {
 
     printRollWelcome(); // Welcome prompt for the number roller
-    beanRolls(scan);
+    diceRoll(scan);
 
   }
 
+  /**
+   * Just a basic method that prints a welcome prompt for the user. Also tells the user how to
+   * access the number generators.
+   */
   public static void printRollWelcome() {
     System.out.println("Please enter the number of sides on your dice");
     System.out.println(
-        "The following number of sides are available to pick from: 4, 6, 8, 10,"
-        + " 12, and 20");
-    // Tells user what side amounts are accepted, 
-    //doesn't tell them about the hidden one
+        "The following number of sides are available to pick from: 4, 6, 8, 10, 12, and 20");
+    // Tells user what side amounts are accepted,
+    // doesn't tell them about the hidden one
   } // closes RollWelcome
 
-  public static void beanRolls(Scanner fairGame) {
-    // The Scanner parameter with fairGame tells the code to use the scan 
-    //Scanner but treats the name as fairGame.
-    // The reason this is relevant, is because it saves me from rewriting all 
-    //the lines of code.
+  /**
+   * A method that actually does the dice rolling for the user after they give input.
+   * 
+   * @param fairGame A reskin of the scanner from the main method, to allow input.
+   */
+  public static void diceRoll(Scanner fairGame) {
+    // The Scanner parameter with fairGame tells the code to use the scan
+    // Scanner but treats the name as fairGame.
+    // The reason this is relevant, is because it saves me from rewriting all
+    // the lines of code.
     int beanRoll = 0;
     boolean weightedDice = true;
     while (weightedDice == true) {
@@ -38,8 +57,7 @@ public class NumberRoller {
         beanRoll = fairGame.nextInt();
       }
     }
-    // The above loop makes sure the user inputs a number so no scary errors 
-    //occur.
+    // The above loop makes sure the user inputs a number so no scary errors occur.
     // int beanRoll = fairGame.nextInt();
     if (beanRoll == 4) { // Rolls a 4-sided dice
       Random deeFour = new Random();
@@ -65,9 +83,8 @@ public class NumberRoller {
       Random deeTwenty = new Random();
       int twentySides = deeTwenty.nextInt(20) + 1;
       System.out.println("The result is: " + twentySides);
-    } else { // If the user doesn't enter any of the specified numbers for 
-      //sides of dice this
-      // "easter egg" happens
+    } else { // If the user doesn't enter any of the specified numbers for
+      // the sides of dice, this "easter egg" happens
       Random diceTry = new Random();
       int snakeEyes = diceTry.nextInt(100) + 1;
       if (snakeEyes > 50) {
@@ -84,20 +101,13 @@ public class NumberRoller {
 
 
     /*
-     * System.out.println("Enter the number of sides on your dice"); 
-     * int rollBeans =
-     * fairGame.nextInt(); Random rndNum = new Random(); 
-     * //Creates a random object, assigned to
-     * rndNum variable int randomNum = rndNum.nextInt(rollBeans) + 1; 
-     * System.out.println(randomNum);
+     * System.out.println("Enter the number of sides on your dice"); int rollBeans =
+     * fairGame.nextInt(); Random rndNum = new Random(); //Creates a random object, assigned to
+     * rndNum variable int randomNum = rndNum.nextInt(rollBeans) + 1; System.out.println(randomNum);
+     * These lines above were meant to test if it was possible to use user-input as variables for a
+     * random class. And it turns out that it does work. But for now, I don't want to basically undo
+     * most of my previous work.
      */
-    /* These lines above were meant to test if it was possible to use 
-    /*user-input as variables for a
-    // random class
-    // And it turns out that it does work. 
-     * But for now, I don't want to basically undo most of my
-     */
-     //previous work.
 
   }
 
